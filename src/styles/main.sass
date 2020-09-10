@@ -1,0 +1,640 @@
+// Global Variable Colours
+$dark: #666666 // gray
+$primary: #576D5C // darker green
+$secondary: #F7BD02 // orange
+$lightgreen: #dff0eb
+$lightyellow: #F9FACD
+$light: #f2f2f2 // light-gray
+
+// Font variable
+$fontfamily: 'Lilita One', sans-serif
+
+// Extends
+%flex-column
+  display: flex
+  justify-content: center
+  flex-direction: column
+
+
+// GLOBAL STYLES
+
+// usefull to hide stuff
+*
+  box-sizing: border-box
+
+.hide
+  display: none !important
+
+html
+  font-size: 110.5%
+
+h1, h2, h3, h4, h5, h6
+  font-family: 'Lilita One', sans-serif !important
+  font-weight: 500
+
+p, button, a, input, textarea
+  font-family: 'Roboto', Sans-Serif !important
+
+a, button
+  cursor: pointer !important
+  transition: all 200ms ease !important
+
+.MuiFilledInput-root
+  background-color: $lightgreen !important
+
+button:not(.MuiAutocomplete-clearIndicator):not(.MuiAutocomplete-popupIndicator):not(.MuiIconButton-root)
+  padding-left: 1em !important
+  padding-right: 1em !important
+
+button:hover
+  transform: translateY(-2px)
+
+section
+  background: $light
+
+// Chips in multivalues select fields
+.MuiChip-root
+  background: $secondary !important
+
+
+// Notification Banner Styles
+.notification-menu
+    position: sticky
+    z-index: 4
+    width: 100%
+    padding: 0px
+
+    // grab the first layer of divs 
+    > div
+      display: flex
+      align-items: center
+      justify-content: center
+      background: $secondary
+      height: 40px
+      color: $primary
+
+      // apply to the button in the first layer div 
+      button
+        transform: scale(.9)
+        color: $primary
+
+// Navbar Styles
+.navbar
+  z-index: 10
+  position: fixed !important
+  width: 100%
+  background-color: $lightgreen
+  position: relative
+  border-top: solid 4px $secondary
+
+  > .main-nav
+    display: flex
+    justify-content: space-between
+    padding: 15px 3em
+    align-items: center
+
+    // Logo Styles
+    > a:first-of-type
+      display: flex
+      align-items: center
+    
+    > a:first-of-type:hover
+      transform: translateY(-2px)
+
+    // NavLink Styles
+    div button
+      margin-left: 1em
+
+// Footer Styles
+.footer
+  display: flex
+  justify-content: center
+  padding: 7em 3em
+  align-items: center
+  background-color: #4F6354 !important
+  background: url(./images/footer-bg.png)
+  background-size: cover
+
+main
+  display: flex
+  min-height: 300px
+  padding: 9em 0 5em 0
+  justify-content: center
+  align-items: center
+
+  // Main titles
+  > div > h2
+    text-align: center
+
+// Main Views Styles
+main.activity-views
+  background: url('./images/activities-bg4.png')
+  background-size: cover
+  background-position: 50% -40%
+  background-attachment: fixed
+  background-repeat: no-repeat
+
+  form
+    max-width: 1000px
+
+  // Activity Cards
+  article
+    max-width: 900px
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    background: $light
+    margin-bottom: 3em
+    border-radius: 10px
+    overflow: hidden
+
+    // Left block of activity cards
+    > div:nth-child(1)
+      width: 40%
+      // Image
+      > div > img
+          border-radius: 0 0 10px 0
+          height: 150px
+          object-fit: cover
+      // Left content wrapper
+      > div:nth-child(2)
+        padding: 1em 0 1.5em 3em 
+        // Tags wrapper
+        ul
+          list-style-type: none
+          padding: 0px
+          margin: 5px 0px 10px 0px
+          display: flex
+          flex-wrap: wrap
+        // Tags
+        li
+          display: inline
+          margin-right: 10px
+          background: #ffffff
+          border-radius: 3px
+          padding: 2px 8px 4px 8px
+          line-height: 1em
+          margin-bottom: .7em
+          font-size: .75em
+          color: $secondary
+          font-weight: 600
+        // Player count text
+        h3
+          margin-bottom: 18px
+          color: $secondary
+    // Actvity Card right content wrapper
+    > div:nth-child(2)
+      width: 55%
+      padding: 1.5em 3em 3em 0
+      position: relative
+      display: flex
+      flex-direction: column
+      justify-content: center
+      // Main buttons on activity card
+      button
+        margin: 1em 1em 0 0
+      // Line items
+      h5 
+        line-height: 1em
+        margin: 5px 0
+        color: $primary
+      // Request Sent Badge
+      h2.request-sent
+        position: absolute
+        top: 0px
+        right: 0px
+        margin: 0px
+        padding: 10px 20px
+        font-size: 1em
+        background: $secondary
+        color: $primary
+        border-radius: 0px 10px 0px 8px
+      // Title
+      h2:first-of-type
+        color: $primary
+  // If pending
+  article.pending
+    background: $lightyellow
+
+// If hosted view, and if there are participants
+div.participants-wrapper 
+  width: 100%
+
+div.participants-list
+  width: 100%
+  background: $lightgreen
+  padding: 2em 3em .5em 3em
+  
+  ul
+    padding-left: 0px
+    list-style-type: none
+    padding-bottom: 1.5em
+    // Single Participant wrapper
+    > div
+      display: flex
+      align-items: center
+      justify-content: space-between
+
+      
+      // Line separator
+      > span
+        height: 2px
+        background: $secondary
+        flex-grow: .85
+    button
+      margin-left: 1em
+
+// Messages Dashboard Styles
+div.messages-list
+  width: 100%
+  background: $lightgreen
+  padding: 2em 3em .5em 3em
+  border-radius: 10px
+  
+  .MuiChip-root
+    margin-left: 15px
+    max-width: 30px
+    max-height: 30px
+    color: $primary
+  
+  ul
+    padding-left: 0px
+    list-style-type: none
+
+    h2
+      margin-top: 0px
+
+    > div
+      display: flex
+      flex-direction: column
+      // Message item wrapper
+      > div
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding-bottom: 2em
+        // Line separator
+        > span
+          height: 2px
+          background: $secondary
+          flex-grow: .85
+      button
+        margin-left: 1em
+
+// Main view styles in Subnav component
+.MuiTabs-root
+  margin-bottom: 3em
+  position: relative
+
+  div > div
+    justify-content: center
+
+div.subnav-wrapper
+  position: relative
+  min-height: 370px
+
+  // Main views title
+  > h2 
+    color: $primary
+    font-size: 3em
+  
+// Fake no items to show
+div.subnav-wrapper:after
+  content: 'Nothing To Show Yet...'
+  display: block
+  position: absolute
+  bottom: 80px
+  text-align: center
+  width: 100%
+  z-index: -1
+  color: $primary
+  font-weight: 400
+  font-family: $fontfamily
+  font-size: 1.3em
+
+// Avatar wrapper
+div.avatar-wrapper
+  display: flex
+  align-items: center
+  margin-left: -5px
+
+  img
+    object-fit: cover
+    width: 100%
+
+  h4, p
+    margin: 0px 10px
+
+  p
+    opacity: .4
+    font-size: .85em
+
+// Basic Form Styles
+
+.form-title
+  color: $primary
+
+form.form
+  display: flex
+  justify-content: center
+  flex-direction: column
+  margin-top: 2em
+
+  .MuiFormControl-root
+    margin-bottom: 1em
+
+.form-selects
+  display: flex
+  justify-content: space-between
+
+  > div
+    width: 47%
+
+  .MuiFormControl-root
+    max-width: 300px
+    min-width: 100%
+
+.form-button-wrapper
+  display: flex
+  justify-content: flex-end
+  padding-top: 1em
+
+  button
+    margin-left: 1em
+
+// maybe not in use
+.notifications
+  margin-left: 1em
+
+// Chatcard styles
+.chat-wrapper
+  min-width: 800px
+  position: relative
+  padding: 3em
+  border-radius: 10px
+
+  // div that holds the animated button
+  > div:first-of-type
+    float: right
+
+  //title
+  > div:nth-child(2)
+    display: flex 
+    align-items: center
+ 
+    //host
+    h3
+      margin-top: 4px
+      margin-left: 10px
+
+  //activity title
+  h2
+    margin-top: 0px
+
+  // JS in ChatCard that forces scroll to bottom - normal chat log functionality
+  .chatlog
+    height: 200px
+    overflow: scroll
+    background: rgba(255,255,255,.0)
+    border-radius: 10px
+    padding: .5em 1.5em .5em 0
+    margin-bottom: 2em
+
+    > div
+      margin: 8px 0
+
+    h5
+      margin: 0em 0
+      padding: .75em 1em
+
+    h5.my-message
+      color: $primary
+      text-align: right
+      background: #dff0eb
+      border-radius: 5px
+      border-right: solid 5px $primary
+
+    h5.their-message
+      color: #666666
+      background: rgba(0,0,0,.03)
+      border-radius: 5px
+      border-left: solid 5px #666666
+
+  > button
+    position: absolute
+    top: 20px
+    right: 20px
+
+  div.message-input-wrapper
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+
+    > div:first-of-type
+      width: 72%
+    
+    > div:last-of-type
+      width: 25%
+      text-align: right
+
+// Searchbar Styles
+.search-wrapper
+  width: 100%
+  padding: 2em 0 3em
+  margin-bottom: 3em
+  background: $lightgreen
+  display: flex
+  border-radius: 12px
+  justify-content: center
+  align-items: center
+
+  > div:first-of-type 
+    margin-right: 20px
+
+// Login Signup Instead styles
+div.signup-instead-wrapper
+  display: flex
+  justify-content: center
+  flex-direction: column
+  text-align: center
+  align-items: center
+  font-size: .8em
+  color: $primary
+  margin-top: 1em
+
+  button
+    margin-top: -6px
+    font-size: .8em
+
+
+  
+.landing-wrapper
+  display: flex
+  justify-content: center
+  flex-direction: column
+  
+  h2
+    color: $secondary
+    font-size: 2.2em
+    margin-top: 0px
+
+.hero
+  margin-top: -5em // overriding the padding on the main
+  background: url('./images/landing-hero.jpg')
+  background-size: cover
+  background-position: center
+
+  .hero-overlay
+    background: rgba(87,109,92,.5)
+    display: flex
+    justify-content: center
+    padding: 10em 9em
+    align-items: flex-start
+
+    div:first-of-type
+      width: 35%
+
+    div:last-of-type
+      width: 65%
+
+    // Largest heading
+    h1
+      color: #ffffff
+      font-size: 3.2em
+      margin: 0px
+      margin-top: -14px
+      margin-right: 35px
+      line-height: 1em
+    // hero subtext
+    h5
+      color: $lightgreen
+      font-size: 1.3em
+      margin-bottom: 0px
+      margin-top: 40px
+      line-height: .95em
+    // Seperator line
+    span
+      display: block
+      width: 175px
+      height: 4px
+      background: $lightgreen
+
+section.categories-wrapper 
+  padding: 7em 0
+  max-width: 1000px
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 0 auto // centering it
+  background: none
+
+  h3
+    padding: .6em
+    margin: 0 1em
+    background: url('./images/shape.png')
+    background-size: contain
+    background-position: center
+    background-repeat: no-repeat
+    font-size: 1.5em
+    text-align: center
+    color: $primary
+
+.process-wrapper
+  padding: 0em 0 8em 0
+  max-width: 900px
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  margin: 0 auto
+  background: none
+
+  p
+    color: $dark
+
+  > div
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+    article
+      width: 30%
+      background: none
+      display: flex
+      justify-content: center
+      flex-direction: column
+      align-items: center
+      text-align: center
+      padding: 0 2em 0em 2em
+
+      h2
+        border: solid 2px $secondary
+        padding: .5em
+        border-radius: 90px
+        height: 100px
+        width: 100px
+        display: flex
+        text-align: center
+        justify-content: center
+        align-items: center
+        margin: .35em 0 
+        transition: all 300ms ease
+      // Steps numbers
+      h2:hover
+        background: $secondary
+        color: $primary
+        transform: scale(1.1)
+      
+      h3
+        font-size: 1.3em
+        color: $primary
+
+.sample-wrapper
+  display: flex
+  padding: 0em
+  background: $lightyellow
+
+  .sample-image
+    background: url('./images/sample-image.png')
+    background-size: cover
+    background-position: center
+    width: 50%
+
+  > div:last-of-type
+    width: 50%
+    padding: 9em 0 3.5em 0
+    margin-left: -3em
+    padding-right: 5em
+
+    h2
+      color: $primary
+      margin-bottom: .3em
+      line-height: 1em
+
+    p
+      margin-top: 0px
+      color: $dark
+
+.cta-wrapper
+  display: flex
+  justify-content: center
+  background: none
+  flex-direction: column
+  align-items: center
+  padding: 6em 0 2em 0
+
+  h4
+    font-size: 4em
+    color: $secondary
+    margin: 0px
+  
+  > div
+    display: flex
+
+    h3
+      padding: 1.25em 1em 2em 1em 
+      color: $primary
+      font-size: 1.5em
+
+
+ 
